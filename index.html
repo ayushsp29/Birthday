@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1,viewport-fit=cover" />
+<title>Happy Birthday Aai 💖</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+<style>
+
+/* -------------------------------------------
+   ROOT THEME — SAKURA + ROSE GOLD
+-------------------------------------------- */
+:root{
+  --bg1:#fff5f8;
+  --bg2:#ffecf4;
+  --accent:#ff2f86;
+  --accent-soft:#ff9fc8;
+  --text:#242424;
+  --muted:#737373;
+  --glass:rgba(255,255,255,0.7);
+  --radius:20px;
+  --radius-sm:14px;
+  --shadow:0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* RESET */
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  background:linear-gradient(180deg,var(--bg1),var(--bg2));
+  font-family:"Poppins",sans-serif;
+  color:var(--text);
+  overflow-x:hidden;
+  padding-bottom:100px;
+}
+.wrap{max-width:720px;margin:0 auto;padding:18px;}
+
+/* HEADER */
+header{
+  position:sticky;
+  top:0;
+  z-index:200;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(0,0,0,0.05);
+}
+.header-inner{
+  padding:14px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.brand{
+  font-family:"Dancing Script",cursive;
+  font-size:24px;
+  color:var(--accent);
+}
+.meta{color:var(--muted);font-size:13px;}
+
+/* FLOATING HEARTS */
+.heart{
+  position:fixed;
+  bottom:-20px;
+  width:18px;height:18px;
+  background:rgba(255,63,134,0.45);
+  border-radius:50%;
+  animation:floatHeart 4s linear infinite;
+  z-index:0;
+  filter:blur(0.4px);
+}
+@keyframes floatHeart{
+  0%{transform:translateY(0) scale(1);opacity:.9;}
+  100%{transform:translateY(-130px) scale(1.3);opacity:0;}
+}
+
+/* FADE-IN ANIMATION */
+.fade{opacity:0;transform:translateY(20px);transition:.8s;}
+.fade.visible{opacity:1;transform:translateY(0);}
+
+/* HERO SECTION */
+.hero{
+  background:var(--glass);
+  padding:16px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  margin-top:14px;
+}
+.badge{
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
+  background:rgba(255,63,134,0.1);
+  color:var(--accent);
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:600;
+}
+.hero-flex{
+  display:flex;
+  margin-top:12px;
+  gap:14px;
+}
+.hero-left{flex:1;}
+.hero-title{font-family:"Playfair Display";font-size:26px;margin-bottom:6px;}
+.hero-tag{color:var(--muted);font-size:15px;margin-bottom:8px;}
+.hero-left p{font-size:15px;line-height:1.65;color:var(--text);}
+
+/* HERO PHOTO */
+.hero-photo{
+  width:40%;
+  min-width:140px;
+  background:linear-gradient(135deg,var(--accent),var(--accent-soft));
+  border-radius:var(--radius-sm);
+  overflow:hidden;
+  position:relative;
+  box-shadow:0 10px 28px rgba(255,63,134,0.25);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.hero-photo img{width:100%;height:100%;object-fit:cover;}
+.photo-caption{
+  position:absolute;
+  bottom:10px;left:10px;right:10px;
+  font-family:"Dancing Script";
+  color:white;font-size:17px;
+  text-shadow:0 2px 10px rgba(0,0,0,0.4);
+}
+
+/* BUTTONS */
+.btn{
+  background:linear-gradient(90deg,var(--accent),var(--accent-soft));
+  color:white;
+  border:none;
+  padding:10px 14px;
+  border-radius:999px;
+  font-size:14px;
+  font-weight:600;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  box-shadow:0 10px 28px rgba(255,63,134,0.25);
+  cursor:pointer;
+  margin-top:8px;
+}
+
+/* CARD STYLE */
+.card{
+  margin-top:18px;
+  background:var(--glass);
+  padding:16px;
+  border-radius:var(--radius-sm);
+  box-shadow:0 10px 24px rgba(0,0,0,0.06);
+}
+.card h3{
+  font-size:18px;
+  color:var(--accent);
+  margin-bottom:6px;
+}
+
+/* INTERACTIVE ENVELOPE */
+.envelope{
+  margin-top:14px;
+  background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200"><rect width="300" height="200" fill="white"/><path d="M0 0 L150 120 L300 0" fill="%23ffb3d9"/></svg>');
+  background-size:cover;
+  border-radius:var(--radius);
+  padding:40px 20px;
+  text-align:center;
+  cursor:pointer;
+  position:relative;
+  box-shadow:var(--shadow);
+}
+.envelope h4{
+  font-family:"Playfair Display";
+  font-size:20px;
+  color:var(--accent);
+}
+.letter-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.45);
+  backdrop-filter:blur(6px);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:300;
+}
+.letter-content{
+  max-width:650px;
+  background:white;
+  border-radius:var(--radius);
+  padding:20px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.25);
+  font-family:"Playfair Display";
+  line-height:1.8;
+  font-size:17px;
+  color:#333;
+  max-height:85vh;
+  overflow-y:auto;
+}
+.close-letter{
+  background:var(--accent);
+  color:white;
+  border:none;
+  padding:8px 14px;
+  font-weight:600;
+  border-radius:999px;
+  margin-top:14px;
+  cursor:pointer;
+}
+
+/* MEMORY SECTION */
+.memory-item{
+  padding:14px;
+  background:rgba(255,255,255,0.9);
+  border-radius:var(--radius-sm);
+  border:1px solid rgba(255,63,134,0.12);
+  margin-top:12px;
+}
+.memory-item h4{
+  margin-bottom:4px;
+  font-size:16px;
+  color:var(--accent);
+}
+.memory-item p{font-size:15px;line-height:1.6;}
+
+/* PHOTO TIMELINE */
+.photo-entry{
+  margin-top:16px;
+}
+.photo-entry img{
+  width:100%;
+  border-radius:var(--radius-sm);
+  box-shadow:0 10px 24px rgba(0,0,0,0.15);
+  cursor:pointer;
+}
+.photo-caption-text{
+  margin-top:6px;
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* FULLSCREEN PHOTO VIEWER */
+#photoModal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.9);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:500;
+}
+#photoModal img{
+  max-width:92%;
+  max-height:92%;
+  border-radius:12px;
+}
+#photoModal:active{display:none;}
+
+/* POEM BLOCK */
+.poem{
+  white-space:pre-line;
+  font-size:16px;
+  line-height:1.75;
+  margin-top:6px;
+}
+.poem .marathi{
+  font-weight:600;
+  color:#c8276c;
+}
+
+/* GRATITUDE FLIP */
+.flip-card{
+  perspective:1200px;
+  width:100%;
+  margin-top:18px;
+}
+.flip-inner{
+  width:100%;
+  transition:transform .8s;
+  transform-style:preserve-3d;
+  cursor:pointer;
+}
+.flip-front,.flip-back{
+  backface-visibility:hidden;
+  position:absolute;
+  inset:0;
+  padding:18px;
+  border-radius:var(--radius-sm);
+  box-shadow:var(--shadow);
+}
+.flip-front{
+  background:var(--accent-soft);
+  color:white;
+  font-family:"Playfair Display";
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+}
+.flip-back{
+  transform:rotateY(180deg);
+  background:white;
+  font-size:16px;
+  line-height:1.7;
+}
+.flip-card.active .flip-inner{
+  transform:rotateY(180deg);
+}
+
+/* FOOTER */
+footer{
+  margin-top:28px;
+  text-align:center;
+  font-size:13px;
+  color:var(--muted);
+}
+
+</style>
+</head>
+<body>
+
+<!-- FLOATING HEARTS -->
+<script>
+for(let i=0;i<14;i++){
+  const h=document.createElement("div");
+  h.className="heart";
+  h.style.left=(Math.random()*100)+"%";
+  h.style.animationDuration=(3+Math.random()*3)+"s";
+  h.style.width=h.style.height=(10+Math.random()*14)+"px";
+  document.body.appendChild(h);
+}
+</script>
+
+<div class="wrap">
+
+<header>
+  <div class="header-inner">
+    <div class="brand">Aai — My Heart</div>
+    <div class="meta">22 November</div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero fade">
+  <div class="badge">🎂 Happy Birthday Aai</div>
+
+  <div class="hero-flex">
+    <div class="hero-left">
+      <h1 class="hero-title">Aai, you are my forever home</h1>
+      <p class="hero-tag">A small page made of a big heart — for the woman who raised it.</p>
+
+      <p>
+        Aai… शब्द कमी पडतात, पण प्रेम कधीच नाही.  
+        तुमचं हसू माझ्या आयुष्याचं शांत मंदिर आहे.  
+        You’ve held our world with strength wrapped in softness.
+        <br><br>
+        Today, I want you to feel the love you’ve given all your life.
+      </p>
+
+      <button class="btn" id="musicBtn">🎵 Music</button>
+      <button class="btn" onclick="saveHero()">📸 Save</button>
+    </div>
+
+    <div class="hero-photo">
+      <img src="main.jpg" alt="Aai Photo">
+      <div class="photo-caption">My strength, my home</div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERACTIVE LETTER -->
+<section class="fade">
+  <div class="envelope" onclick="openLetter()">
+    <h4>💌 A Letter From Your Mulga</h4>
+  </div>
+</section>
+
+<div class="letter-modal" id="letterModal">
+  <div class="letter-content">
+    <h2 style="margin-bottom:10px;">My Letter to You, Aai</h2>
+
+    Aai, तू मला रोज दाखवलंस की प्रेम म्हणजे काय.  
+    तुमचा प्रत्येक त्याग, प्रत्येक जागृती, प्रत्येक संघर्ष —  
+    I saw it. I felt it. And it shaped me.
+
+    You take care of me, of Baba, of everyone…  
+    आणि तरीही तुमचा चेहरा नेहमी हसतमुखच असतो.
+
+    तुमचं प्रेम आवाजात नसतं —  
+    ते तुमच्या कृतीत असतं.  
+    The world doesn’t see it, but I do.
+
+    Thank you for being my strength, my calm, my home.
+
+    <br><br>
+
+    <button class="close-letter" onclick="closeLetter()">Close</button>
+  </div>
+</div>
+
+<!-- MEMORIES -->
+<section class="card fade">
+  <h3>My Sweetest Memories with You, Aai</h3>
+
+  <div class="memory-item">
+    <h4>🌼 The Premixes You Made For Me</h4>
+    <p>
+      Aai… there are moments in life that stay forever, not because they were grand,<br>
+      but because someone loved with quiet, unconditional depth.<br>
+      And this memory is one of those moments.<br><br>
+
+      त्या दिवशी तुम्ही किती थकलेल्या होतात…<br>
+      कामाचा ताण, घराची धावपळ, शारीरिक थकवा — सर्व दिसत होतं.<br>
+      <strong>But still, you walked into the kitchen, tired but determined.</strong><br><br>
+
+      My stomach was bad… I was struggling to eat outside food.<br>
+      कोणताही दुसरा असता तर म्हणाला असता,<br>
+      <tt>“Manage somehow.”</tt><br>
+      But <strong>you</strong> didn’t.<br><br>
+
+      तुम्ही तासन्तास उभ्या राहून<br>
+      <strong>20–30 दिवसांचे healthy premixes</strong> तयार केले — फक्त माझ्यासाठी.<br><br>
+
+      Aai, त्या premixes मध्ये फक्त पोषण नव्हतं —<br>
+      <strong>त्यात तुमची माया होती, त्याग होता, काळजी होती… आईपण होतं.</strong><br><br>
+
+      Every spoon of that premix reminded me:<br>
+      <strong><tt>“Ayush, तू एकटा नाही आहेस… तुझी आई आहे तुझ्यासाठी.”</tt></strong><br><br>
+
+      Even when your body was tired,<br>
+      <strong>your love was not.</strong><br>
+      This memory is one of the purest forms of love I have ever known.
+    </p>
+  </div>
+
+  <div class="memory-item">
+    <h4>🌸 When You Stood Up For Me</h4>
+    <p>
+      Aai, life has not always been kind.<br>
+      I’ve had days where I doubted myself,<br>
+      days where failures felt heavier than hope.<br><br>
+
+      And then came that moment…<br><br>
+
+      Someone looked at me and said,<br>
+      <tt>“This is not your cup of tea.”</tt><br><br>
+
+      It felt like the world telling me — “You are not enough.”<br><br>
+
+      But before that thought could break me,<br>
+      <strong>you stepped in — with a strength only a mother has.</strong><br><br>
+
+      तुमच्या शांत पण ठाम आवाजात तुम्ही म्हणालात —<br>
+      <strong><tt>
+      “चहा त्याचा नसला तरी काय?<br>
+      तो स्वतःची चहा बनवायला शिकेल.”<br>
+      “If it’s not his cup of tea, he will create his own.”
+      </tt></strong><br><br>
+
+      Aai… त्या एका वाक्याने<br>
+      <strong>माझा आत्मविश्वास पुन्हा जन्माला आला.</strong><br><br>
+
+      Whenever I fell,<br>
+      <strong>you lifted me.</strong><br>
+      Whenever I felt lost,<br>
+      <strong>you and Baba became my compass.</strong><br>
+      Whenever I doubted myself,<br>
+      <strong>you became my voice of belief.</strong><br><br>
+
+      That day, you didn’t just stand up for me —<br>
+      <strong>you taught me how to stand up for myself.</strong><br><br>
+
+      Every dream I chase,<br>
+      every success I achieve,<br>
+      every step I take forward —<br>
+      <strong>त्या एका वाक्याने मला चालायला शिकवलं.</strong>
+    </p>
+  </div>
+
+</section>
+
+
+<!-- PHOTO TIMELINE -->
+<section class="card fade">
+  <h3>Our Journey in Photos</h3>
+
+  <div class="photo-entry">
+    <img src="queen.jpg" onclick="openPhoto(this.src)" alt="">
+    <div class="photo-caption-text">🌸 Our Queen — Your love began shaping my life.</div>
+  </div>
+
+  <div class="photo-entry">
+    <img src="angel.jpg" onclick="openPhoto(this.src)" alt="">
+    <div class="photo-caption-text">🌸 Our Angel — Your guidance became my strength.</div>
+  </div>
+
+  <div class="photo-entry">
+    <img src="3.jpg" onclick="openPhoto(this.src)" alt="">
+    <div class="photo-caption-text">🌸 Our Happiness — Your smile makes everything brighter.</div>
+  </div>
+
+  <div class="photo-entry">
+    <img src="2.jpg" onclick="openPhoto(this.src)" alt="">
+    <div class="photo-caption-text">🌸 Our Superhero — I am who I am because of you.</div>
+  </div>
+
+</section>
+
+<!-- FULLSCREEN PHOTO VIEWER -->
+<div id="photoModal" onclick="this.style.display='none'">
+  <img src="" id="modalImg">
+</div>
+
+<!-- POEM -->
+<section class="card fade">
+  <h3>A Poem for You</h3>
+  <div class="poem">
+<span class="marathi">Aai, तू माझं आकाश,  
+तू माझा श्वास…</span>
+In every storm, you were my peace,  
+in every darkness, you held my hand.
+
+<span class="marathi">तुझे हात म्हणजे आश्रय,  
+तुझं हास्य म्हणजे देवाचा आवाज.</span>
+You loved without count,  
+you cared without rest.
+
+<span class="marathi">Aai…  
+तू जे काही करतेस,  
+ते कुणी देऊ शकत नाही.</span>
+
+Happy Birthday, माझ्या लाडक्या Aai.  
+You are my forever home. ❤️
+  </div>
+</section>
+
+<!-- GRATITUDE FLIP CARD -->
+<section class="flip-card fade">
+  <div class="flip-inner" onclick="this.parentElement.classList.toggle('active')">
+    <div class="flip-front">💖 My Promise</div>
+    <div class="flip-back">
+      Aai, having you and Baba as my parents  
+      is the biggest blessing of my life.  
+      मी नेहमी तुझा मुलगा राहीन —  
+      and I promise to make you proud every single day.
+    </div>
+  </div>
+</section>
+
+<footer>Made with ❤️ by Ayush</footer>
+
+</div>
+
+<!-- AUDIO -->
+<audio id="bgAudio" src="audio.mp3" loop></audio>
+
+<script>
+
+/* Autoplay Hack */
+window.addEventListener("load",()=>{
+  if(navigator.vibrate) navigator.vibrate(10);
+  setTimeout(()=>{document.getElementById("bgAudio").play().catch(()=>{});},150);
+});
+
+/* Play/Pause */
+document.getElementById("musicBtn").onclick=()=>{
+  let a=document.getElementById("bgAudio");
+  if(a.paused){a.play();document.getElementById("musicBtn").innerHTML="⏸ Pause";}
+  else{a.pause();document.getElementById("musicBtn").innerHTML="🎵 Music";}
+};
+
+/* Letter Modal */
+function openLetter(){document.getElementById("letterModal").style.display="flex";}
+function closeLetter(){document.getElementById("letterModal").style.display="none";}
+
+/* Fullscreen Photo */
+function openPhoto(src){
+  document.getElementById("modalImg").src=src;
+  document.getElementById("photoModal").style.display="flex";
+}
+
+/* Save Hero (simple snapshot window) */
+function saveHero(){
+  let html=document.querySelector(".hero").outerHTML;
+  let w=window.open("");
+  w.document.write(html);
+  w.document.close();
+}
+
+/* Fade-in on scroll */
+function fadeIn(){
+  document.querySelectorAll(".fade").forEach(el=>{
+    if(el.getBoundingClientRect().top < window.innerHeight - 60){
+      el.classList.add("visible");
+    }
+  });
+}
+window.addEventListener("scroll",fadeIn);
+window.addEventListener("load",fadeIn);
+
+</script>
+
+</body>
+</html>
